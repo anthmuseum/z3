@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block metadata %}{{ metadata | safe }}{% endblock %}
+
+{% block index %}
+<h2>Collections</h2>
+<ul class="lh-lg">
+    {% for collection in collections %}
+    <li><a href="{{collection.key}}">{{collection.name}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

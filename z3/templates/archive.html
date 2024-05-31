@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block text %}
+<p>{{description | safe}}</p>
+{% endblock %}
+
+{% block index %}
+<div class="row row-cols-1 g4">
+    {% for library in libraries %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><small class="text-muted">Library</small><br><a class="stretched text-decoration-none" href="/{{ library.slug }}/collections">{{library.name}}</a></h5>
+                <p class="card-text">{{library.description | safe}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block query %}{% endblock %}

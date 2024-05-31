@@ -1,0 +1,24 @@
+usage: sync.py [-h] [--api-key API_KEY] --library-id LIBRARY_ID
+               [--version VERSION] [--get-library-data] [--database DATABASE]
+               [--download-files] [--remove-deleted]
+               [--merge-priority {remote,local,ignore}]
+
+Sync with Zotero library
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --api-key API_KEY     API key (not required for read-only access)
+  --library-id LIBRARY_ID
+  --version VERSION
+  --get-library-data    Download library name and description from the Zotero
+                        server. This clears and replaces local library-level
+                        metadata.
+  --database DATABASE
+  --download-files
+  --remove-deleted
+  --merge-priority {remote,local,ignore}
+                        conflict resolution strategy. Remote: keep remote
+                        values, overwriting local data. Local: keep local
+                        values. Ignore: skip items with conflicting data.
+                        Fields that are available in only one version are not
+                        deleted.

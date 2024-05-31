@@ -1,0 +1,13 @@
+flask
+flask-paginate
+flask-caching
+bs4
+jsonpatch
+pyzotero
+json2html
+preview-generator
+python-dateutil
+flask-httpauth
+toml
+python-magic
+html2image

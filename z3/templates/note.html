@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{%block h1 %}{% endblock %}
+
+{% block metadata %}<h2>Metadata</h2>{{ metadata | safe}}{% endblock %}
+
+{% block text %}
+{{content | safe}}
+{% endblock %}
+
+{% block children %}{% if children %}<h2>Child objects</h2>
+<ul class="lh-lg">
+    {% for child in children %}
+    <li><span class="text-muted">[{{child.itemType}}]</span> <a href="{{child.key}}">{{child.title or child.annotationText or child.filename or 'Untitled'}}</a> {{child.annotationComment}}</li>
+    {% endfor %}
+</ul>{% endif %}
+{% endblock %}

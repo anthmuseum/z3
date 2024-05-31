@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block index %}
+<ul>
+{% for value in index %}
+<li><a href="/{{slug}}/query/{{predicate}}/{{ value | urlencode }}">{{ value}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

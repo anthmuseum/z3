@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block index %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    {% for item in items %}
+    <div class="col">
+        <div class="card h-100">
+            <div style="height:300px; background:#eee url({{ url_for('static', filename='icon-file.svg') }});background-repeat:no-repeat; background-position: center center;">{{item.thumb | safe}}</div>
+            <div class="card-body">
+                <h5 class="card-title"><small class="text-muted">{{item.itemType}}</small><br>{{item.title}}</h5>
+                <p class="card-text">{{item.abstractNote | striptags | truncate(250,false)}}</p>
+                <p>{{item.tag |join(', ')}}</p></div>
+                <div class="card-footer"><small><a href="/{{slug}}/items/{{item.key}}" class="stretched-link">{{item.key}}</a></small></div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block pagination %}
+<div style="margin-top:2em">{{ pagination }}</div>
+{% endblock %}

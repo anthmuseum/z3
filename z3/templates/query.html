@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block index %}
+    <ol>
+    {% for item in items %}
+    <li><small class="text-muted">{{item.itemType}}</small> <a href="/{{slug}}/items/{{item.key}}"><b>{% if item.itemType == 'annotation' or item.itemType == 'note' %}{{ item.parentItem or item.title }}{% else %}
+        {{item.title or item.key}}{% endif %}</a></b>
+        <blockquote>{% if item.itemType == 'annotation' %}<em class="text-muted">{{ item.annotationText}}</em> {{item.annotationComment}}{% elif item.itemType == 'note' %}{{ item.note | striptags | truncate(250,false)}}{% else %}
+        {{item.abstractNote | truncate(250,false)}}{% endif %}
+        </blockquote></li>
+    {% endfor %}
+</ol>
+{% endblock %}

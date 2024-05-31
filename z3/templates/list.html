@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block index %}
+<table class="table">
+    {% for item in items %}
+    <tr>
+        <td>
+            <a href="/{{slug}}/items/{{item.key}}"><div style="height:300px; width:300px; background:#fefefe url({{ url_for('static', filename='icon-file.svg') }});background-repeat:no-repeat; background-position: center center;">{{item.thumb | safe}}</div></a>
+        </td>
+        <td>
+                <h5><span class="text-muted">{{item.itemType}} / </span> {{item.title}}</h5>
+                <p>{{item.author |join(', ')}}</p>
+                <p>{{item.date}}</p>
+                <p>{{item.abstractNote | striptags | truncate(250,false)}}</p>
+                <p>{{item.tag |join(', ')}}</p>
+                <p><a href="/{{slug}}/items/{{item.key}}">{{item.key}}</a></p>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+{% block pagination %}
+<div style="margin-top:2em">{{ pagination }}</div>
+{% endblock %}
